@@ -12,8 +12,8 @@ export class TransactionApiMockService {
   ) {}
 
   // Helper method to generate randomized mock transactions
-  private generateMockTransactions(startDate: string, endDate: string) {
-    const types = ['earned', 'earned','earned', 'spent', 'payout']; //quick way to make sure earned is weighed heavier than others
+  private generateMockTransactions(startDate: string, endDate: string) { 
+    const types = ['earned', 'earned','earned', 'spent', 'payout']; //quick way to make sure 'earned' is weighed heavier than others
     const randomInt = (min: number, max: number) =>
       Math.floor(Math.random() * (max - min + 1)) + min;
   
@@ -29,7 +29,8 @@ export class TransactionApiMockService {
     }));
   }
 
-  async getTransactions(startDate: string, endDate: string) {
+  // Not using page&pageSize for this mock but included for the api limit sake
+  async getTransactions(startDate: string, endDate: string, page=1, pageSize=1000) {
     const mockTransactions = this.generateMockTransactions(startDate, endDate); // Generate randomized data
     const filtered = mockTransactions.filter((transaction) => {
       const createdAt = new Date(transaction.createdAt).getTime();
