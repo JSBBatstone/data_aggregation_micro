@@ -72,15 +72,8 @@ $ npm run test
 $ npm run test:e2e
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+## Describe Testing Strategy
+For an app like this, I’d go with a mix of unit, integration, and end-to-end tests to cover all the bases. Unit tests would handle the nitty-gritty stuff, like making sure TransactionApiMockService works properly on its own, while integration tests would check how things play together—like the database and API endpoints. E2E tests would focus on making sure everything flows smoothly, like with the /aggregation/user/:userId endpoint. If I had more time, I’d start with TDD by writing tests for the key features first (like aggregation and pagination), then write just enough code to pass them. Along the way, I’d do manual checks at every step—running SQL queries and scribbling down expected results on pen and paper to double-check the data. I’d also make sure to account for things like retries failing or odd edge cases with the data.
 
 ## License
 
